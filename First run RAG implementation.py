@@ -16,7 +16,11 @@ os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Load the PDF
-pdf_path = "Rideshare_Payload_Users_Guide.pdf"
+# Get the directory where the current script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Build the full path to the PDF
+pdf_path = os.path.join(script_dir, "Rideshare_Payload_Users_Guide.pdf")
 try:
     loader = PyPDFLoader(pdf_path)
     documents = loader.load()
